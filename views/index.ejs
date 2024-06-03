@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Tea House</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="icon" href="https://cdn1.vectorstock.com/i/1000x1000/66/50/tea-house-logo-vector-21286650.jpg"> -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3788603684.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main">
+        <!-- header starts -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="header-left">
+                            <p>
+                                <i>
+                                    <img src="/images/i_phone.png" alt="">
+                                </i>
+                                Hotline:
+                                <a href="#">1800 6750</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="header-right">
+                            <div class="search">
+                                <span>
+                                    <i>
+                                        <img src="/images/i_search.png" alt="">
+                                    </i>
+                                    Tìm kiếm
+                                    <div class="search-input">
+                                        <input id="search" type="text" placeholder="Tìm kiếm..."
+                                            onkeyup="searchProduct(event)">
+                                    </div>
+                                </span>
+                                <form action="" class="mobile">
+                                    <input type="text" placeholder="bana">
+                                </form>
+                            </div>
+                            <div class="account">
+                                <span>
+                                    <i>
+                                        <img src="/images/i_user.png" alt="">
+                                    </i>
+                                    Tài khoản
+                                </span>
+                                <div class="group-ac">
+                                    <% if(loggerUser) {%>
+
+                                        <% if(loggerUser.role==0) {%>
+                                            <a href="">Chào, <%= loggerUser.lastname %></a>
+                                            <a href="http://localhost:3000/users/logout" id="lognout">Đăng Xuất</a>
+                                            <a href="http://localhost:3000/product" id="admin">Trang admin</a>
+                                            <%} else {%>
+                                                <a href="">Chào, <%= loggerUser.lastname %></a>
+                                                <a href="http://localhost:3000/users/logout" id="lognout">Đăng Xuất</a>
+                                                <%}%>
+                                                    <%} else { %>
+                                                        <a href="http://localhost:3000/users/login" id="login">Đăng
+                                                            nhập</a>
+                                                        <a href="http://localhost:3000/users/register" id="signup">Đăng
+                                                            ký</a>
+                                                        <%}%>
+                                                            <!-- <a href="" id="userName"></a>
+                                    <a href="http://localhost:3000/users/login" id="login">Đăng nhập</a>
+                                    <a href="http://localhost:3000/users/register" id="signup">Đăng ký</a>
+                                    <a href="http://localhost:3000/admin" id="admin">Trang admin</a> -->
+                                                            <!-- <a href="#" id="lognout" onclick="lognout()">Đăng Xuất</a> -->
+                                </div>
+                            </div>
+                            <div class="cart">
+                                <span>
+                                    <i>
+                                        <a href="giohang.html"><img src="/images/i_cart.png" alt=""></a>
+                                    </i>
+                                    Giỏ hàng
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header ends -->
+
+        <!-- menu starts -->
+        <div class="menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="menu-left">
+                            <ul class="sub__navmenu">
+                                <li><a href="http://localhost:3000/" class="active">Trang chủ</a></li>
+                                <li><a href="./gioithieu.html">Giới thiệu</a></li>
+                                <li>
+                                    <a href="./sanpham.html" class="sp">
+                                        Sản phẩm
+                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="subnav__menu-left">
+                                        <li><a href="#">Cà phê</a></li>
+                                        <li><a href="#">Bánh ngọt</a></li>
+                                        <li><a href="#">Smoothies</a></li>
+                                        <li><a href="#">Trà hoa quả</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo">
+                            <a href="./index.html">
+                                <img src="/images/logo.png" alt="">
+                            </a>
+                        </div>
+                        <div class="menu-left">
+                            <ul class="sub__navmenu">
+                                <li><a href="./tintuc.html">Tin tức</a></li>
+                                <li><a href="#">Thực đơn</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- menu ends -->
+
+        <!-- slide starts -->
+        <div class="slide">
+            <img src="/images/slider_1.jpg" alt="">
+        </div>
+        <!-- slide ends -->
+
+        <!-- categoty starts -->
+        <div class="category">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title-category">DANH MỤC SẢN PHẨM</h2>
+                    </div>
+                    <% for(let c of categoriesHome) { %>
+                        <div class="col-xl-3 col-md-4 col-6">
+                            <div class="box wow bounceInLeft">
+                                <div class="img-tea">
+                                    <a href="#">
+                                        <img src="/images/<%= c.img[0] %>" alt="">
+                                    </a>
+                                    <div class="content">
+                                        <h3>
+                                            <a href="#">
+                                                <%= c.title %>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        <!-- category ends -->
+
+        <!-- why starts-->
+        <div class="why-section wow fadeInDown">
+            <div class="container">
+                <div class="col-12 col-md-12">
+                    <div class="why-title">
+                        <h3>TẠI SAO CHỌN CHÚNG TÔI</h3>
+                        <p class="why-content">
+                            Với những nghệ nhân rang tâm huyết và đội ngũ tài năng cùng những câu chuyện trà đầy cảm
+                            hứng, ngôi nhà Tea House là không gian dành riêng cho những ai trót yêu say đắm hương vị của
+                            những lá trà tuyệt hảo.
+                        </p>
+                    </div>
+                    <div class="why-icon">
+                        <div class="icon">
+                            <img src="/images/icon_why_1.png" alt="">
+                        </div>
+                        <div class="icon-text">
+                            <span>
+                                Giá cả phải chăng
+                            </span>
+                            <p>Cam kết chỉ cung cấp cà phê có nguồn gốc <br> được kiểm soát chất lượng</p>
+                        </div>
+                    </div>
+                    <div class="why-icon">
+                        <div class="icon">
+                            <img src="/images/icon_why_2.png" alt="">
+                        </div>
+                        <div class="icon-text">
+                            <span>
+                                Hương vị tuyệt hảo
+                            </span>
+                            <p>Những đọt trà được lựa chọn cẩn thận <br> ngay từ lúc đang ngâm mình trong sương</p>
+                        </div>
+                    </div>
+                    <div class="why-icon">
+                        <div class="icon">
+                            <img src="/images/icon_why_3.png" alt="">
+                        </div>
+                        <div class="icon-text">
+                            <span>
+                                Sản phẩm tự nhiên
+                            </span>
+                            <p>Cam kết chỉ cung cấp lá trà có nguồn gốc <br> được kiểm soát chất lượng chặt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- why ends -->
+
+        <!-- menu-tea starts -->
+        <div class="menu-tea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <h2 class="title-category wow bounceInDown">MENU HÔM NAY</h2>
+                    </div>
+                    <!-- <div class="col-12 col-md-12">
+                        <h2 class="title-category wow bounceInDown">MENU HÔM NAY</h2>
+                    </div> -->
+                    <div class="col-xl-12 col-md-12">
+                        <ul class="navbar-pill wow bounceInLeft">
+                            <li><a class="selectProduct pill-active" type="all">Tất cả</a></li>
+                            <li><a class="selectProduct" type="TraHoaQua">Trà hoa quả</a></li>
+                            <li><a class="selectProduct" type="Smoothies">Smoothies</a></li>
+                            <li><a class="selectProduct" type="BanhNgot">Bánh ngọt</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="col-md-12">
+                        <label for="filterType">Lọc theo loại:</label>
+                        <select class="form-select" id="filterType" onchange="filterProducts()" aria-label="Default select example">
+                            <option value="all">Tất cả</option>
+                            <option value="TraNong">Trà nóng</option>
+                            <option value="TraHoaQua">Trà hoa quả</option>
+                            <option value="Smoothies">Smoothies</option>
+                            <option value="BanhNgot">Bánh ngọt</option>
+                        </select>
+                    </div> -->
+                </div>
+                <div class="row" id="ProductMain">
+                    <% for(let p of productHome) { %>
+                        <div class="col-xl-3 col-md-4 col-6 wow fadeInLeft">
+                            <div class="box hot">
+                                <div class="img-tea hot">
+                                    <a href="#">
+                                        <img class="itemproduct" src="./images/<%= p.img[0] %>" alt="" type="">
+                                    </a>
+                                    <div class="cart-hv">
+                                        <h5>
+                                            <a href="#">Thêm vào giỏ hàng</a>
+                                        </h5>
+                                    </div>
+                                    <div class="content hot">
+                                        <h3>
+                                            <a href="#">
+                                                <%= p.name %>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="price">
+                                        <span>Giá:</span>
+                                        <%= p.price %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+            <div class="time-open wow fadeIn">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <div class="box-time">
+                            <h4>THỜI GIAN HOẠT ĐỘNG</h4>
+                            <p class="slogan">
+                                “Khi nào rảnh thì cùng nhau uống trà nhé" - Một lời hẹn rất riêng của người Việt. Một
+                                lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia câu chuyện của riêng mình.
+                            </p>
+                            <div class="time">
+                                <span>Thứ 2 - Thứ 6: 8h30 - 21h30</span> <br>
+                                <span>Thứ 7 - Chủ Nhật: 8h30 - 21h30</span> <br>
+                                <span>Các ngày lễ: 7h30 - 23h30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <img class="banner-time" src="/images/banner_time_open.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title-category">TIN TỨC NỔI BẬT</h2>
+                    </div>
+                    <div class="col-xl-4 col-12 col-md-6 wow slideInDown">
+                        <div class="blog-box">
+                            <img src="/images/untitled-1.jpg" alt="">
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="#"
+                                        title="Nhâm nhi cà phê bao lâu nhưng bạn tận mắt nhìn kỹ xem hạt cà phê chưa?">Nhâm
+                                        nhi cà phê bao lâu nhưng bạn tận mắt nhìn kỹ xem hạt cà phê chưa?</a>
+                                </h3>
+                                <div class="post">
+                                    <p>
+                                        Cốc cafe vị đăng đắng, lẫn thêm chút ngọt bùi của sữa đặc sao mà gây nghiện đến
+                                        thế. Không chỉ cuốn hút ở mùi vị, một cốc cafe sáng còn giúp ngày mới tràn đầy
+                                        năng lượng với người trẻ, sẵn sàng ch...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-12 col-md-6 wow slideInDown">
+                        <div class="blog-box">
+                            <img src="/images/untitled-5.jpg" alt="">
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="/uong-1-4-tach-ca-phe-moi-ngay-giup-benh-nhan-ung-thu-keo-dai-su-song"
+                                        title="Uống 1-4 tách cà phê mỗi ngày giúp bệnh nhân ung thư kéo dài sự sống">Uống
+                                        1-4 tách cà phê mỗi ngày giúp bệnh nhân ung thư kéo dài sự sống</a>
+                                </h3>
+                                <div class="post">
+                                    <p>
+                                        Uống từ một đến bốn tách cà phê mỗi ngày có thể giúp bệnh nhân ung thư đại trực
+                                        tràng giai đoạn cuối sống lâu hơn và làm chậm sự tiến triển của bệnh. Phát hiện
+                                        này được các nhà khoa học rút ra từ ...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-12 wow slideInDown">
+                        <div class="blog-box table">
+                            <img src="/images/untitled-3.jpg" alt="">
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="/dung-coc-giay-dung-ca-phe-nong-thu-ban-uong-se-khong-chi-la-cafein-ma-con-day-ap-nhung-thu-dang-so-nay"
+                                        title="Dùng cốc giấy đựng cà phê nóng, thứ bạn uống đầy ắp những thứ đáng sợ này">Dùng
+                                        cốc giấy đựng cà phê nóng, thứ bạn uống đầy ắp những thứ đáng sợ này</a>
+                                </h3>
+                                <div class="post">
+                                    <p>
+                                        Đối với nhiều người, một ngày mới chỉ có thể khởi đầu tốt đẹp bằng một tách cà
+                                        phê nóng. Nhờ cafein, bộ não dường như không thể nhận được tín hiệu "mệt mỏi",
+                                        từ đó tạo cho con người ta một nguồn n...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- menu-tea ends -->
+
+    <!-- footer starts -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="logo-footer">
+                        <a href="#">
+                            <img src="/images/logo.png" alt="">
+                        </a>
+                        <p class="sum-footer">Chúng tôi mong muốn Tea House sẽ trở thành “Nhà Trà", nơi mọi người xích
+                            lại gần nhau và tìm thấy niềm vui, sự sẻ chia thân tình bên những tách cà phê đượm hương,
+                            chất lượng.</p>
+                    </div>
+                    <div class="social-icon">
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <h4 class="title-footer">
+                        <a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a>
+                    </h4>
+                    <div class="address">
+                        <div class="address-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        <div class="address-info">
+                            <span>
+                                <b>Địa chỉ: </b>
+                                364 Dương Quảng Hàm, Phường 5, Gò Vấp, TP. Hồ Chí Minh
+                            </span>
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="address-icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <div class="address-info">
+                            <span>
+                                <b>Hotline liên hệ: </b>
+                                <a href="#"> 0869536638</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <h4 class="title-footer">
+                        <a href="#">ĐĂNG KÝ NHẬN KHUYẾN MÃI</a>
+                    </h4>
+                    <div class="text-title-footer">
+                        <p>Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn</p>
+                    </div>
+                    <div class="register-footer">
+                        <form action="">
+                            <input type="text" placeholder="Email của bạn">
+                            <button>Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends -->
+    <a href="#" class="btn btn-lg btn-success btn-lg-squares rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/dnadk.js"></script>
+    <script src="../routes/trash.js"></script>
+</body>
+
+</html>
